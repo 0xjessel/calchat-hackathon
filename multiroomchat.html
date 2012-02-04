@@ -9,6 +9,10 @@
 </head>
 
 <body>
+<h1 id="header">calchat |</h1>
+<script type="text/javascript">
+document.getElementById("header").innerHTML="calchat/"+now.room;
+</script>
 <div id="fb-root"></div>
 <script>
   (function() {
@@ -55,6 +59,8 @@ $(document).ready(function(){
   now.receiveMessage = function(name, message){
     $("#messages").append("<br>" + name + ": " + message);
   }
+  
+  
   
   $("#send-button").click(function(){
     now.distributeMessage($("#text-input").val());

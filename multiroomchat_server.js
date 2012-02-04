@@ -17,9 +17,9 @@ var everyone = nowjs.initialize(server);
 
 
 nowjs.on('connect', function(){
-  this.now.room = pathname//"Soda Hall"; //dynamically assign based on route
+  this.now.room = pathname //dynamically assign based on route
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
-  console.log(this.now.name + " has joined the chat");
+  console.log(this.now.name + " has joined " + this.now.room);
 });
 
 
