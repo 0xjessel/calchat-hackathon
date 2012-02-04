@@ -7,10 +7,12 @@ var server = require('http').createServer(function(req, response){
     response.write(data);  
     pathname = url.parse(req.url).pathname;
     console.log("pathname capture:" + pathname);
+    pathname = url.parse(req.url).pathname;
+    console.log("pathname capture:" + pathname);
     response.end();
   });
 });
-server.listen("chat");
+server.listen(8080);
 
 
 var nowjs = require("now");
