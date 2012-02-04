@@ -6,25 +6,6 @@
 <script src="/nowjs/now.js"></script>
 <script type="text/javascript" src="http://www.calchat.jessechen.net/js/fb.js"/></script>
 
-<script>
-$(document).ready(function(){
-  now.receiveMessage = function(name, message){
-    $("#messages").append("<br>" + name + ": " + message);
-  }
-  
-  $("#send-button").click(function(){
-    now.distributeMessage($("#text-input").val());
-    $("#text-input").val("");
-  });
-
-  $(".change").click(function(){
-    now.changeRoom($(this).text());
-  });
-
-  now.name = prompt("What's your name?", name);
-
-});
-</script>
 </head>
 
 <body>
@@ -68,5 +49,26 @@ $(document).ready(function(){
 <div id="messages"><br>You're in room 1</div>
 <input type="text" id="text-input">
 <input type="button" value="Send" id="send-button">
+
+<script>
+$(document).ready(function(){
+  now.receiveMessage = function(name, message){
+    $("#messages").append("<br>" + name + ": " + message);
+  }
+  
+  $("#send-button").click(function(){
+    now.distributeMessage($("#text-input").val());
+    $("#text-input").val("");
+  });
+
+  $(".change").click(function(){
+    now.changeRoom($(this).text());
+  });
+
+  now.name = name;
+  console.log(now.name);
+
+});
+</script>
 </body>
 </html>
