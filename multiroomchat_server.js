@@ -9,7 +9,7 @@ var server = require('http').createServer(function(req, response){
       pathname = url.parse(req.url).pathname;
     }
       everyone.now.setValue = function () {
-      this.now.path = this.now.room;
+      this.now.path = pathname;
   }
     response.end();
   });
