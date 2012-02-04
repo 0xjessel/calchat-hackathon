@@ -76,12 +76,12 @@
 				
 				FB.getLoginStatus(function(response) {
 					if (response.status === 'connected') {
+						document.getElementById('logout').style.display = 'block';
 						FB.api('/me', function(response) {
-							(elem = document.getElementById('login')).parentNode.removeChild(elem);
+							document.getElementById('login').style.display = 'none';
 						       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
 							});
 					} else {
-						(elem = document.getElementById('logout')).parentNode.removeChild(elem);
 						console.log(response.status);
 					}
 				});
@@ -137,8 +137,11 @@
 		<div id="user-friends"></div>
 		-->
 
-		<div id="logout" style="display: hidden">
-			<p><button class="btn-danger" onClick="FB.logout();">Logout</button></p>
+		<div id="logout" style="display: none">
+			<p><button class="btn-danger" 
+				onClick="document.getElementById('login').style.display='block';
+					document.getElementById('logout').style.display='none';
+					FB.logout();">Logout</button></p>
 		</div>
 		
 		<!-- add javascript here -->
