@@ -23,6 +23,9 @@ nowjs.on('connect', function(){
   console.log("pathname after assignment:" + pathname);
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
   console.log(this.now.name + " has joined " + this.now.room);
+  everyone.now.setValue = function () {
+      this.now.path = this.now.room;
+  }
 });
 
 
