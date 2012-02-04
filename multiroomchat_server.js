@@ -14,7 +14,7 @@ var everyone = nowjs.initialize(server);
 
 
 nowjs.on('connect', function(){
-  this.now.room = "room 1";
+  this.now.room = "Soda Hall";
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
   console.log("Joined: " + this.now.name);
 });
