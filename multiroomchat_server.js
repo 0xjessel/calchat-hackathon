@@ -1,5 +1,5 @@
 var url = require('url');
-var pathname = "";
+var pathname = "default";
 var fs = require('fs');
 var server = require('http').createServer(function(req, response){
   fs.readFile(__dirname+'/multiroomchat.html', function(err, data){
