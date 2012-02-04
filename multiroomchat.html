@@ -21,7 +21,7 @@ $(document).ready(function(){
     now.changeRoom($(this).text());
   });
 
-  now.name = prompt("What's your name?", "");
+  now.name = prompt("What's your name?", name);
 
 });
 </script>
@@ -36,16 +36,29 @@ $(document).ready(function(){
         document.getElementById('fb-root').appendChild(e);
         }());
 </script>
-<script>
-  function handleResponseChange(response) {
-      document.body.className = response.authResponse ? 'connected' : 'not_connected';
-      if (response.authResponse) {
-        console.log(response);
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({ appId: '297402036983700', 
+					status: true, 
+					cookie: true,
+					xfbml: true,
+					auth: true});
 
-        updateUserInfo(response);
-      }
-    }
-</script>
+				FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+				
+				FB.getLoginStatus(function(response) {
+					if (response.status === 'connected') {
+						FB.api('/me', function(response) {
+							var name = response.name;
+							(elem = document.getElementById('login')).parentNode.removeChild(elem);
+						       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
+						});
+					} else {
+						console.log(response.status);
+					}
+				});
+			};
+		</script>
 <div>
   <a href="#" class="change selected">room 1</a> -
   <a href="#" class="change">room 2</a> -
