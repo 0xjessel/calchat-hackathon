@@ -66,8 +66,6 @@ $(document).ready(function(){
     $("#messages").append("<br>" + name + ": " + message);
   }
   
-  #document.getElementById("header").innerHTML="calchat/"+this.now.room;
-  
   $("#send-button").click(function(){
     now.distributeMessage($("#text-input").val());
     $("#text-input").val("");
@@ -77,6 +75,7 @@ $(document).ready(function(){
     now.changeRoom($(this).text());
   });
 
+	now.name = prompt("What's your name?", "");
 });
 </script>
 </body>
