@@ -5,25 +5,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="/nowjs/now.js"></script>
 <script type="text/javascript" src="http://www.calchat.jessechen.net/js/fb.js"/></script>
-<script type="text/javascript">
-<!--
-function submitenter(myfield,e)
-{
-var keycode;
-if (window.event) keycode = window.event.keyCode;
-else if (e) keycode = e.which;
-else return true;
 
-if (keycode == 13)
-   {
-   $('#send-button').click();
-   return false;
-   }
-else
-   return true;
-}
-//-->
-</SCRIPT>
 </head>
 
 <body>
@@ -66,7 +48,7 @@ else
 </div>
 <br>
 <div id="messages"><br>You're in room 1</div>
-<input type="text" id="text-input" onKeyPress="return submitenter(this, event)">
+<input type="text" id="text-input">
 <input type="button" value="Send" id="send-button">
 <script>
   now.ready(function(){
