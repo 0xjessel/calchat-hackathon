@@ -16,7 +16,7 @@ function handleResponseChange(response) {
 
 function updateUserInfo(response) {
 	FB.api('/me', function(response) {
-	document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+	document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + '<p> ' + response.name + '</p>';
 	});
 }
 
