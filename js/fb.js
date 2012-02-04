@@ -13,6 +13,8 @@ function loginUser() {
 }
 
 function handleResponseChange(response) {
+	console.log(response);
+	
 	document.body.className = response.authResponse ? 'connected' : 'not_connected';
 
 	if (response.authResponse) {
