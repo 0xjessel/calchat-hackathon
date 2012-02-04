@@ -14,14 +14,14 @@ var everyone = nowjs.initialize(server);
 
 
 nowjs.on('connect', function(){
-  this.now.room = "Soda Hall";
+  this.now.room = "Soda Hall"; //dynamically assign based on route
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
-  console.log("Joined: " + this.now.name);
+  console.log(this.now.name + " has joined the chat");
 });
 
 
 nowjs.on('disconnect', function(){
-  console.log("Left: " + this.now.name);
+  console.log(this.now.name + " has left the chat");
 });
 
 everyone.now.changeRoom = function(newRoom){

@@ -16,7 +16,18 @@
 		
 	</head>
 	<body>
-	
+		<script>
+			jQuery(window).ready(function() {
+				initiate_geolocation();
+				$('#what')
+					.popover({
+						placement:'bottom'
+					})
+					.click(function(e) {
+						e.preventDefault()
+					})
+			});
+		</script>
 		<div class="navbar">
 			<div class="navbar-inner">
 				<div class="container">
@@ -31,13 +42,13 @@
 		  
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li><a href="#" rel="popover" title="we're calchat" data-content="here is what we do.  wiggle wiggle wiggle">What?</a></li>
+							<li><a href="#" id="what" rel="popover" data-original-title="we're calchat" data-content="here is what we do.  wiggle wiggle wiggle">What?</a></li>
 							<li><a href="#">About</a></li>
 						</ul>
 						<ul class="nav pull-right">
 							<li>
 								<div id="login"><button class="btn" onClick="loginUser();">Login</button></div>
-								<div id="user-info"></div>
+								<div id="user-info" data-toggle="dropdown"></div>
 							</li>
 						</ul>
 					</div>
@@ -70,7 +81,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="span2">
-					<p>Are you at: </p>
+					<p>You are near: </p>
 				</div>
 				<div class="span2">
 					<button id="choice1" class="btn">Soda</button>
@@ -124,6 +135,7 @@
 		<script src="js/bootstrap/bootstrap-typeahead.js"></script>
 		<script src="js/bootstrap/bootstrap-tooltip.js"></script>
 		<script src="js/bootstrap/bootstrap-popover.js"></script>
+		<script src="js/bootstrap/bootstrap-dropdown.js"></script>
 	</body>
 </html>
 <style>
