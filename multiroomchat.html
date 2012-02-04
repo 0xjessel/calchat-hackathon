@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>nowjs test</title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script src="/nowjs/now.js"></script>
+	<title>nowjs test</title>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="/nowjs/now.js"></script>
+	<script src="js/fb.js"></script>
 
-<script>
-$(document).ready(function(){
-  now.receiveMessage = function(name, message){
-    $("#messages").append("<br>" + name + ": " + message);
-  }
+	<script>
+		$(document).ready(function(){
+			now.receiveMessage = function(name, message){
+			$("#messages").append("<br>" + name + ": " + message);
+			}
   
-  $("#send-button").click(function(){
-    now.distributeMessage($("#text-input").val());
-    $("#text-input").val("");
-  });
+			$("#send-button").click(function(){
+				now.distributeMessage($("#text-input").val());
+				$("#text-input").val("");
+			});
 
-  $(".change").click(function(){
-    now.changeRoom($(this).text());
-  });
+			$(".change").click(function(){
+				now.changeRoom($(this).text());
+			});
 
-  now.name = prompt("What's your name?", "");
-
-});
-</script>
+			now.name = prompt("What's your name?", "");
+		});
+	</script>
 </head>
 
 <body>
