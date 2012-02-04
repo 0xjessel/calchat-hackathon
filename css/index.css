@@ -11,3 +11,9 @@
 	color:#999;
 	vertical-align: middle;
 }
+
+@media (max-width: 480px) {
+	.btn-navbar .icon-bar {
+		display: block;
+	}
+}
