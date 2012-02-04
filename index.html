@@ -35,7 +35,7 @@
 						</ul>
 						<ul class="nav pull-right">
 							<li>
-								<div id="login" class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
+								<div id="login"><button class="btn" onClick="loginUser();">Login</button>
 								<div id="user-info"></div>
 							</li>
 						</ul>
@@ -53,6 +53,7 @@
 				document.getElementById('fb-root').appendChild(e);
 			}());
 		</script>
+		
 		<script>
 			window.fbAsyncInit = function() {
 				FB.init({ appId: '297402036983700', 
@@ -64,6 +65,7 @@
 				FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
 			};
 		</script>
+		
 		<div class="container">
 			<div class="row show-grid">
 				<div class="span3">

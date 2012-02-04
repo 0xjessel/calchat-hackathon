@@ -6,14 +6,20 @@ function handleResponseChange(response) {
 	console.log(response);
 	
 	document.body.className = response.authResponse ? 'connected' : 'not_connected';
-
-	updateUserInfo(response);
+    
+	if (response.authResponse) {
+		updateUserInfo(response);
+	}
 }
 
 function updateUserInfo(response) {
 	FB.api('/me', function(response) {
 	document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
 	});
+}
+
+function loginUser() {
+	FB.login(function(response) { }, {});
 }
 
 function getUserFriends() {
