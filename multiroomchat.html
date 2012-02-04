@@ -51,13 +51,23 @@
 <input type="button" value="Send" id="send-button">
 
 <script>
+  now.ready(function(){
+    now.setValue();
+  });
+  
+  setTimeout(function(){
+      document.getElementById("header").innerHTML="calchat"+this.now.path;
+  }, 500); 
+</script>
+ 
+<script>
 $(document).ready(function(){
 				
   now.receiveMessage = function(name,  message){
     $("#messages").append("<br>" + name + ": " + message);
   }
   
-  document.getElementById("brand").innerHTML="calchat/"+now.room;
+ #document.getElementById("brand").innerHTML="calchat/"+now.room;
   
   $("#send-button").click(function(){
     now.distributeMessage($("#text-input").val());
