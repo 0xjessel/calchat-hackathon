@@ -1,8 +1,11 @@
-﻿var fs = require('fs');
+var url = require('url');
+var pathname = "default";
+var fs = require('fs');
 var server = require('http').createServer(function(req, response){
   fs.readFile(__dirname+'/multiroomchat.html', function(err, data){
     response.writeHead(200, {'Content-Type':'text/html'}); 
     response.write(data);  
+    pathname = url.parse(req.url).pathname;
     response.end();
   });
 });
@@ -14,9 +17,9 @@ var everyone = nowjs.initialize(server);
 
 
 nowjs.on('connect', function(){
-  this.now.room = "Soda Hall"; //dynamically assign based on route
+  this.now.room = pathname //dynamically assign based on route
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
-  console.log(this.now.name + " has joined the chat");
+  console.log(this.now.name + " has joined " + this.now.room);
 });
 
 
