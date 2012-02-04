@@ -70,13 +70,8 @@ else
 <input type="text" id="text-input" onKeyPress="return submitenter(this, event)">
 <input type="button" value="Send" id="send-button">
 <script>
-  now.ready(function(){
-    now.setValue();
-  });
-  
-  setTimeout(function(){
-      document.getElementById("header").innerHTML="calchat"+this.now.path;
-  }, 500); 
+var pathVal = document.URL.split("/")[3];
+document.getElementById("header").innerHTML="calchat/"+pathVal;
  </script>
  <script>
 $(document).ready(function(){
