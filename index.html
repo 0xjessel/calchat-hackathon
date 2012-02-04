@@ -75,6 +75,17 @@
 					auth: true});
 
 				FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+				
+				FB.getLoginStatus(function(response) {
+					if (response.status === 'connected') {
+						 FB.api('/me', function(response) {
+						(elem = document.getElementById('login')).parentNode.removeChild(elem);
+						       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
+     });
+					} else {
+						console.log(response.status);
+					}
+				});
 			};
 		</script>
 		
