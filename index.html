@@ -52,7 +52,17 @@
 				document.getElementById('fb-root').appendChild(e);
 			}());
 		</script>
-		
+		<script>
+		window.fbAsyncInit = function() {
+	FB.init({ appId: '297402036983700', 
+	status: true, 
+	cookie: true,
+	xfbml: true,
+	auth: true});
+
+	FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+};
+		</script>
 		<div class="container">
 			<div class="row show-grid">
 				<div class="span3">

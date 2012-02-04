@@ -1,13 +1,3 @@
-window.fbAsyncInit = function() {
-	FB.init({ appId: '297402036983700', 
-	status: true, 
-	cookie: true,
-	xfbml: true,
-	auth: true});
-
-	FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
-};
-
 function loginUser() {    
 	FB.login(function(response) { }, {scope:'email'});     
 }
