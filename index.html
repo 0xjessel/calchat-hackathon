@@ -64,19 +64,6 @@
 				FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
 			};
 		</script>
-		<script>
-			function handleResponseChange(response) {
-				console.log(response);
-	
-				document.body.className = response.authResponse ? 'connected' : 'not_connected';
-
-				if (response.authResponse) {
-					console.log(response);
-				}
-
-				updateUserInfo(response);
-			}
-		</script>
 		<div class="container">
 			<div class="row show-grid">
 				<div class="span3">

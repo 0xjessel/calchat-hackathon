@@ -7,10 +7,6 @@ function handleResponseChange(response) {
 	
 	document.body.className = response.authResponse ? 'connected' : 'not_connected';
 
-	if (response.authResponse) {
-		console.log(response);
-	}
-
 	updateUserInfo(response);
 }
 
