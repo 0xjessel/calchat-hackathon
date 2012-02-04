@@ -5,10 +5,9 @@ var server = require('http').createServer(function(req, response){
   fs.readFile(__dirname+'/multiroomchat.html', function(err, data){
     response.writeHead(200, {'Content-Type':'text/html'}); 
     response.write(data);  
-    pathname = url.parse(req.url).pathname;
-    console.log("pathname capture:" + pathname);
-    pathname = url.parse(req.url).pathname;
-    console.log("pathname capture:" + pathname);
+    if (url.parse(req.url).pathname != "/favicon.ico"){
+      pathname = url.parse(req.url).pathname;
+    }
     response.end();
   });
 });
