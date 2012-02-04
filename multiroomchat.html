@@ -4,6 +4,7 @@
 <title>nowjs test</title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="/nowjs/now.js"></script>
+<script type="text/javascript" src="http://www.calchat.jessechen.net/js/fb.js"/></script>
 
 <script>
 $(document).ready(function(){
@@ -27,7 +28,24 @@ $(document).ready(function(){
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+        }());
+</script>
+<script>
+  function handleResponseChange(response) {
+      document.body.className = response.authResponse ? 'connected' : 'not_connected';
+      if (response.authResponse) {
+        console.log(response);
 
+        updateUserInfo(response);
+      }
+    }
+</script>
 <div>
   <a href="#" class="change selected">room 1</a> -
   <a href="#" class="change">room 2</a> -
