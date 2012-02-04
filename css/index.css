@@ -1,3 +1,8 @@
 .pull-right {
 	vertical-align: middle;
 }
+
+#profile-picture {
+	width:32px;
+	height:32px;
+}
