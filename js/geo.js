@@ -1,5 +1,5 @@
 jQuery(window).ready(function() {
-	jQuery("#btnInit").click(initiate_geolocation);
+	initiate_geolocation();
 });
 			
 function initiate_geolocation() {
