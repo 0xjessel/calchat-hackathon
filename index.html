@@ -81,6 +81,7 @@
 						       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
 							});
 					} else {
+						(elem = document.getElementById('logout')).parentNode.removeChild(elem);
 						console.log(response.status);
 					}
 				});
