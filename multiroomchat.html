@@ -9,38 +9,38 @@
 </head>
 
 <body>
-<h1 id="header">calchat |</h1>
 <div id="fb-root"></div>
 <script>
+	window.fbAsyncInit = function() {
+		FB.init({ appId: '297402036983700', 
+			status: true, 
+			cookie: true,
+			xfbml: true,
+			auth: true});
+
+		FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+				
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+				FB.api('/me', function(response) {
+					now.name = response.name;
+					(elem = document.getElementById('login')).parentNode.removeChild(elem);
+				       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
+				});
+			} else {
+				console.log(response.status);
+			}
+		});
+	};
+	
   (function() {
     var e = document.createElement('script'); e.async = true;
         e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
         document.getElementById('fb-root').appendChild(e);
         }());
+	
 </script>
-		<script>
-			window.fbAsyncInit = function() {
-				FB.init({ appId: '297402036983700', 
-					status: true, 
-					cookie: true,
-					xfbml: true,
-					auth: true});
-
-				FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
-				
-				FB.getLoginStatus(function(response) {
-					if (response.status === 'connected') {
-						FB.api('/me', function(response) {
-							now.name = response.name;
-							(elem = document.getElementById('login')).parentNode.removeChild(elem);
-						       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
-						});
-					} else {
-						console.log(response.status);
-					}
-				});
-			};
-		</script>
+<h1 id="header">calchat |</h1>
 <div>
 <div id="login"><button class="btn" onClick="loginUser();">Login</button></div>
   <a href="#" class="change selected">room 1</a> -
@@ -54,17 +54,6 @@
 
 <script>
 $(document).ready(function(){
-				FB.getLoginStatus(function(response) {
-					if (response.status === 'connected') {
-						FB.api('/me', function(response) {
-							now.name = response.name;
-							(elem = document.getElementById('login')).parentNode.removeChild(elem);
-						       document.getElementById('user-info').innerHTML = '<img id="profile-picture" src="https://graph.facebook.com/' + response.id + '/picture">' + ' ' + response.name;
-						});
-					} else {
-						console.log(response.status);
-					}
-				});
 				
   now.receiveMessage = function(name,  message){
     $("#messages").append("<br>" + name + ": " + message);
