@@ -6,6 +6,7 @@ var server = require('http').createServer(function(req, response){
     response.writeHead(200, {'Content-Type':'text/html'}); 
     response.write(data);  
     pathname = url.parse(req.url).pathname;
+    console.log("pathname capture:" + pathname);
     response.end();
   });
 });
@@ -18,6 +19,7 @@ var everyone = nowjs.initialize(server);
 
 nowjs.on('connect', function(){
   this.now.room = pathname; //dynamically assign based on route
+  console.log("pathname after assignment:" + pathname);
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
   console.log(this.now.name + " has joined " + this.now.room);
 });
