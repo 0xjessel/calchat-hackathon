@@ -4,6 +4,21 @@
 		<title>Hello World</title>
 		<meta name="viewport" 
 			content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<script src="js/jquery-1.7.1.min"></script>
+		<script>
+			jQuery(window).ready(function() {
+				jQuery("#btnInit").click(initiate_geolocation);
+			});
+			
+			function initiate_geolocation() {
+				navigator.geolocation.getCurrentPosition(handle_geolocation_query);
+			}
+			
+			function handle_geolocation_query(position) {
+				alert('Lat: ' + position.coords.latitude + ' ' + 
+					  'Lon: ' + position.coords.longitude);
+			}
+		</script>
 	</head>
 	<body>
 		<div id="fb-root"></div>
@@ -33,7 +48,7 @@
 			xfbml: true,
 			oauth: true});
 
-		FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+			FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
 		};
 
 		function loginUser() {    
@@ -56,25 +71,25 @@
 		});
 	}
 
-	function getUserFriends() {
-		FB.api('/me/friends&fields=name,picture', function(response) {
-			console.log('Got friends: ', response);
+		function getUserFriends() {
+			FB.api('/me/friends&fields=name,picture', function(response) {
+				console.log('Got friends: ', response);
 
-			if (!response.error) {
-				var markup = '';
+				if (!response.error) {
+					var markup = '';
 
-				var friends = response.data;
+					var friends = response.data;
 
-				for (var i=0; i < friends.length && i < 25; i++) {
-					var friend = friends[i];
+					for (var i=0; i < friends.length && i < 25; i++) {
+						var friend = friends[i];
 
-					markup += '<img src="' + friend.picture + '"> ' + friend.name + '<br>';
-				}
+						markup += '<img src="' + friend.picture + '"> ' + friend.name + '<br>';
+					}
 
-				document.getElementById('user-friends').innerHTML = markup;
-			}	
-		);
-	}
+					document.getElementById('user-friends').innerHTML = markup;
+				}	
+			);
+		}
 	</script>
 	</body>
 </html>
