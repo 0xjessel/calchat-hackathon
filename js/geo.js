@@ -1,3 +1,7 @@
+jQuery(window).ready(function() {
+	initiate_geolocation();
+});
+			
 function initiate_geolocation() {
 	if (navigator.geolocation) { 
 		navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
