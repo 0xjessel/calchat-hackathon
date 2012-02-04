@@ -20,7 +20,7 @@ var everyone = nowjs.initialize(server);
 
 nowjs.on('connect', function(){
   this.now.room = pathname; //dynamically assign based on route
-  console.log("pathname after assignment:" + pathname);
+  //console.log("pathname after assignment:" + pathname);
   nowjs.getGroup(this.now.room).addUser(this.user.clientId);
   console.log(this.now.name + " has joined " + this.now.room);
   everyone.now.setValue = function () {
