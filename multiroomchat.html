@@ -9,6 +9,33 @@
 </head>
 
 <body>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+		
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+		  
+					<a class="brand" href="#">calchat</a>
+		  
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li><a href="#" id="what" rel="popover" data-original-title="we're calchat" data-content="here is what we do.  wiggle wiggle wiggle">What?</a></li>
+							<li><a href="#">About</a></li>
+						</ul>
+						<ul class="nav pull-right">
+							<li>
+								<div id="login"><button class="btn" onClick="loginUser();">Login</button></div>
+								<div id="user-info" data-toggle="dropdown"></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 <div id="fb-root"></div>
 <script>
 	window.fbAsyncInit = function() {
@@ -40,7 +67,6 @@
         }());
 	
 </script>
-<h1 id="header">calchat |</h1>
 <div>
 <div id="login"><button class="btn" onClick="loginUser();">Login</button></div>
   <a href="#" class="change selected">room 1</a> -
@@ -59,7 +85,7 @@ $(document).ready(function(){
     $("#messages").append("<br>" + name + ": " + message);
   }
   
-  document.getElementById("header").innerHTML="calchat/"+now.room;
+  document.getElementById("brand").innerHTML="calchat/"+now.room;
   
   $("#send-button").click(function(){
     now.distributeMessage($("#text-input").val());
